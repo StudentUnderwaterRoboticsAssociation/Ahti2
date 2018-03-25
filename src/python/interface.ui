@@ -140,7 +140,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>On/Off</string>
+      <string>Led</string>
      </property>
     </widget>
     <widget class="QSlider" name="horizontalSlider_4">
@@ -154,19 +154,6 @@
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_18">
-     <property name="geometry">
-      <rect>
-       <x>236</x>
-       <y>110</y>
-       <width>66</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Disabled</string>
      </property>
     </widget>
    </widget>
@@ -468,20 +455,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Open/Close</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_17">
-      <property name="geometry">
-       <rect>
-        <x>228</x>
-        <y>58</y>
-        <width>71</width>
-        <height>17</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>OPEN</string>
+       <string>Gripper</string>
       </property>
      </widget>
     </widget>

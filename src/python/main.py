@@ -40,6 +40,7 @@ class App(QtGui.QMainWindow, interface.Ui_MainWindow):
 		self.progressBar_2.setRange(0, 180)
 		self.progressBar_3.setRange(0, 180)
 		self.progressBar_4.setRange(0, 180)
+		self.pushButton_15.autoDefault()
 		#inflation gripper control
 		self.pushButton_15.toggle()
 		self.pushButton_15.setCheckable(True)
@@ -65,19 +66,22 @@ class App(QtGui.QMainWindow, interface.Ui_MainWindow):
 	def inflationGripper(self):
 		if self.pushButton_15.isChecked():
 			print "Open"
-			self.label_17.setText("Open")
+			self.pushButton_15.setText("Open")
 		else:
 			print "Close"
-			self.label_17.setText("Close")
+			self.pushButton_15.setText("Close"
+
+				)
 	def ledControl(self):
 		if self.pushButton_5.isChecked():
 			print "Off"
 			self.horizontalSlider_4.setEnabled(False)
-			self.label_18.setText("Off")			
+			self.pushButton_5.setText("Off")		
 		else:
 			print "On"
 			self.horizontalSlider_4.setEnabled(True)
-			self.label_18.setText("On")
+			self.pushButton_5.setText("On")
+
 def main():
     app = QtGui.QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt())
