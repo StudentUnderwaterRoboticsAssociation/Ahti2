@@ -32,10 +32,25 @@ class App(QtGui.QMainWindow, interface.Ui_MainWindow):
 		self.horizontalSlider.valueChanged.connect(self.openGripper)
 		self.horizontalSlider_2.valueChanged.connect(self.rotateGripper)
 		self.horizontalSlider_3.valueChanged.connect(self.panCamera)
-		self.horizontalSlider_4.valueChanged.connect(self.lights)
+		self.horizontalSlider_4.valueChanged.connect(self.ledsBrightness)
+		
+		#defaults
+		self.horizontalSlider_4.setEnabled(False)
 		self.progressBar.setRange(0, 180)
 		self.progressBar_2.setRange(0, 180)
 		self.progressBar_3.setRange(0, 180)
+		self.progressBar_4.setRange(0, 180)
+		#inflation gripper control
+		self.pushButton_15.toggle()
+		self.pushButton_15.setCheckable(True)
+		self.pushButton_15.clicked.connect(self.inflationGripper)
+
+		#Led control
+		self.pushButton_5.toggle()
+		self.pushButton_5.setCheckable(True)
+		self.pushButton_5.clicked.connect(self.ledControl)
+		
+
 
 
 
@@ -45,9 +60,24 @@ class App(QtGui.QMainWindow, interface.Ui_MainWindow):
 		self.progressBar_2.setValue(x)
 	def panCamera(self, x):
 		self.progressBar_3.setValue(x)
-	def lights(self, x):
+	def ledsBrightness(self, x):
 		self.progressBar_4.setValue(x)
-
+	def inflationGripper(self):
+		if self.pushButton_15.isChecked():
+			print "Open"
+			self.label_17.setText("Open")
+		else:
+			print "Close"
+			self.label_17.setText("Close")
+	def ledControl(self):
+		if self.pushButton_5.isChecked():
+			print "Off"
+			self.horizontalSlider_4.setEnabled(False)
+			self.label_18.setText("Off")			
+		else:
+			print "On"
+			self.horizontalSlider_4.setEnabled(True)
+			self.label_18.setText("On")
 def main():
     app = QtGui.QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt())
