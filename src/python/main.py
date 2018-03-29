@@ -82,8 +82,11 @@ class App(QtGui.QMainWindow, interface.Ui_MainWindow):
         self.pushButton_7.clicked.connect(self.resetConnection)
         self.pushButton_9.clicked.connect(self.sendData)
 
-    def resetConnection(self):
+
+
         
+
+    def resetConnection(self):
         print ("Server Restart Initiated")
         self.shutServer()
         #self.t1.join()
@@ -97,12 +100,11 @@ class App(QtGui.QMainWindow, interface.Ui_MainWindow):
         sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         server_address = ('192.168.1.100', 4242)
         sock.connect(server_address)
-        sock.sendall(str(self.lineEdit_3.text()))
+        sock.sendall("Initialization Command")
         data = sock.recv(100)
         print data
         sock.close()
             
-           
     def startServer(self):
         self.t1 = threading.Thread(target = self.core)
         self.t1.daemon = True
@@ -119,12 +121,21 @@ class App(QtGui.QMainWindow, interface.Ui_MainWindow):
         sock.close()
 
 
-    def rotateClockwise(self):
-        print "ClockWise"
+    def rotateClockwise(self, x):
+        print x
     def rotateAntiClockwise(self):
         print "Anti ClockWise"
     def openGripper(self, x):
         self.progressBar.setValue(x)
+        sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        server_address = ('192.168.1.100', 4242)
+        sock.connect(server_address)
+        sock.sendall(str(x))
+        data = sock.recv(100)
+        print data
+        sock.close()
+
+
     def rotateGripper(self,x):
         self.progressBar_2.setValue(x)
     def panCamera(self, x):
