@@ -25,11 +25,11 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1205, 960)
+        MainWindow.resize(1205, 828)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.tabWidget = QtGui.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(10, 20, 1171, 881))
+        self.tabWidget.setGeometry(QtCore.QRect(10, 20, 1171, 731))
         self.tabWidget.setObjectName(_fromUtf8("tabWidget"))
         self.tab = QtGui.QWidget()
         self.tab.setObjectName(_fromUtf8("tab"))
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.label_11.setGeometry(QtCore.QRect(80, 56, 31, 17))
         self.label_11.setObjectName(_fromUtf8("label_11"))
         self.groupBox_3 = QtGui.QGroupBox(self.tab)
-        self.groupBox_3.setGeometry(QtCore.QRect(760, 0, 371, 811))
+        self.groupBox_3.setGeometry(QtCore.QRect(760, 0, 371, 661))
         self.groupBox_3.setObjectName(_fromUtf8("groupBox_3"))
         self.progressBar = QtGui.QProgressBar(self.groupBox_3)
         self.progressBar.setGeometry(QtCore.QRect(30, 70, 321, 31))
@@ -191,7 +191,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

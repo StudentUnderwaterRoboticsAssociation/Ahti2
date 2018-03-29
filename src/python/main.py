@@ -94,51 +94,29 @@ class App(QtGui.QMainWindow, interface.Ui_MainWindow):
         self.keepRunning = False
 
     def core(self):
-        while(1):
-            self.connection, self.client_address = self.serverSocket.accept()
-            print ("Connection from: ", self.client_address) 
-            data = self.connection.recv(1)
-            print data 
-            self.lineEdit_5.setText("Incoming: " + str(data))   
-            self.connection.shutdown(1)
-            self.connection.close()
-            print "Connection Closed"
+        sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        server_address = ('192.168.1.100', 4242)
+        sock.connect(server_address)
+        sock.sendall(str(self.lineEdit_3.text()))
+        data = sock.recv(100)
+        print data
+        sock.close()
             
            
     def startServer(self):
-        # IP = '10.78.18.2'
-        # self.keepRunning = True
-        # self.serverState = False
-        # self.server = ThreadedTCPServer(('192.168.2.133',4242), requestHandler)
-        # self.server_thread = threading.Thread(target = self.server.serve_forever)
-        # self.server_thread.daemon = True
-        # self.server_thread.start()
-        # print "Server has started on :", IP
-        # self.serverState = True
-        
-
-        self.serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        try:
-            server_address = (str(self.lineEdit.text()), int(self.lineEdit_2.text()))
-        except ValueError:
-            print "Please enter IP and Port" 
-            self.lineEdit_5.setText("Please enter IP and Port to connect!")
-            return
-        self.serverSocket.bind(server_address)
-        self.lineEdit_5.setText("Server started")
-        self.serverSocket.listen(2)
-        print ("Server started: ", server_address)
-        
-        
         self.t1 = threading.Thread(target = self.core)
         self.t1.daemon = True
         self.t1.start()
 
-          #self.connection.close()
+        #self.connection.close()
     def sendData(self, connectionObject):
-        print "Sending data" + str(self.lineEdit_3.text())
-        self.lineEdit_5.setText("Sending: " + str(self.lineEdit_3.text()))
-        self.commandList.append(str(self.lineEdit_3.text()))
+        sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        server_address = ('192.168.1.100', 4242)
+        sock.connect(server_address)
+        sock.sendall(str(self.lineEdit_3.text()))
+        data = sock.recv(100)
+        print data
+        sock.close()
 
 
     def rotateClockwise(self):
