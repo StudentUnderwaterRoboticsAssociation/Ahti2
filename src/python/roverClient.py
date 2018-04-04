@@ -8,7 +8,7 @@ import time
 
 
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_address = ('192.168.1.100', 4242)
+server_address = ('192.168.2.133', 4242)
 serverSocket.bind(server_address)
 serverSocket.listen(4)
 print ("Server started: ", server_address)
